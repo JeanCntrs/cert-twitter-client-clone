@@ -1,3 +1,7 @@
+import {
+    TEST
+} from '../types';
+
 const initialState = {
     names: '',
     surnames: ''

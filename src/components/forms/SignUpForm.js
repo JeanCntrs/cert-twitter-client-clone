@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import { Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { isValidEmail } from '../../utils/validations';
+import { signUpAPI } from '../../api/auth';
 import '../../assets/scss/components/forms/signUpForm.scss';
 
-const SignUpForm = () => {
+// Redux actions
+/* import { useDispatch, useSelector } from 'react-redux';
+import { testAction } from '../../actions/userActions'; */
+
+const SignUpForm = ({ setShowModal }) => {
     const initialFormValue = { names: '', surnames: '', email: '', password: '', repeatPassword: '' };
     const [formData, setFormData] = useState(initialFormValue);
     const [signUpLoading, setSignUpLoading] = useState(false);
@@ -15,7 +20,39 @@ const SignUpForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('sign up form')
+
+        let validCount = 0;
+        Object.values(formData).map(value => {
+            value && validCount++;
+        });
+
+        if (Object.keys(formData).length !== validCount)
+            return toast.warning('❌ Completa todos los campos del formulario.');
+
+        if (!isValidEmail(formData.email))
+            return toast.warning('❌ Email inválido.');
+
+        if (formData.password !== formData.repeatPassword)
+            return toast.warning('❌ Contraseñas no coinciden.');
+
+        if (formData.password.length < 6)
+            return toast.warning('❌ Contraseñas debe contener al menos 6 caracteres.');
+
+
+        setSignUpLoading(true);
+        signUpAPI(formData).then(response => {
+            if (response.errorCode) {
+                toast.error(`❌ ${response.msg}`);
+            } else {
+                toast.success('🚀 Registro exitoso!');
+                setShowModal(false);
+                setFormData(initialFormValue);
+            }
+        }).catch(() => {
+            toast.error(`❌ Error del servidor, inténtelo más tarde.`);
+        }).finally(() => {
+            setSignUpLoading(false);
+        });
     }
 
     return (
