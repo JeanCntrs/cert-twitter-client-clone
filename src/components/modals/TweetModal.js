@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { Close } from '../../utils/icons';
 import { toast } from 'react-toastify';
+import { addTweetAPI } from '../../api/tweet';
 import classnames from 'classnames';
 import '../../assets/scss/components/modals/tweetModal.scss';
 
@@ -11,11 +12,11 @@ const TweetModal = ({ showModal, setShowModal }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('add tweet api')
-        /* if (message.length > 0 && message.length <= maxLength) {
+
+        if (message.length > 0 && message.length <= maxLength) {
             addTweetAPI(message).then(response => {
                 if (response?.code >= 200 && response?.code < 300) {
-                    toast.success(`🚀 ${response.message}!`);
+                    /* toast.success(`🚀 ${response.msg}`); */
                     setShowModal(false);
                     window.location.reload();
                 } else {
@@ -24,7 +25,7 @@ const TweetModal = ({ showModal, setShowModal }) => {
             }).catch(() => {
                 toast.error(`❌ Error del servidor, inténtelo más tarde.`);
             });
-        } */
+        }
     }
 
     return (

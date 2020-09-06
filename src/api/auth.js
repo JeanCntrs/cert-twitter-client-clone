@@ -56,6 +56,14 @@ export const setTokenAPI = token => {
     localStorage.setItem('token', token);
 }
 
+export const getTokenAPI = () => {
+    return localStorage.getItem('token');
+}
+
+export const logOutAPI = () => {
+    localStorage.removeItem('token');
+}
+
 export const isValidToken = () => {
     const token = localStorage.getItem('token');
     if (token) {
