@@ -7,7 +7,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         {...rest}
         render={props => isValidToken()
             ? <Component {...props} />
-            : <Redirect to={{ pathname: 'sign-in', state: { from: props.location } }} />
+            : <Redirect to={{ pathname: '/sign-in', state: { from: props.location } }} />
         }
     />
 );

@@ -10,11 +10,13 @@ export const modelFormat = tweets => {
     tweets.map(tweet =>
         tempTweets.push({
             _id: tweet._id,
-            userId: tweet.userRelationId,
+            userId: {
+                _id: tweet.userRelationId,
+                names: tweet.users.names,
+                surnames: tweet.users.surnames,
+                avatar: tweet.users.avatar
+            },
             message: tweet.tweets.message,
-            names: tweet.users.names,
-            surnames: tweet.users.surnames,
-            avatar: tweet.users.avatar,
             createdAt: tweet.tweets.createdAt
         })
     );

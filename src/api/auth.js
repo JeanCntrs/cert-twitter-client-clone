@@ -77,3 +77,17 @@ export const isValidToken = () => {
         return false;
     }
 }
+
+export const userLoggedAPI = () => {
+    const token = getTokenAPI();
+
+    if (!token) {
+        logOutAPI(); return
+    }
+
+    if (!isValidToken(token)) {
+        logOutAPI(); return
+    }
+
+    return jwtDecode(token);
+}

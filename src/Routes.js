@@ -5,6 +5,7 @@ import PrivateRoute from './components/hoc/PrivateRoute';
 import UnloggedRoute from './components/hoc/UnloggedRoute';
 import SignIn from './components/pages/SignIn';
 import Home from './components/pages/Home';
+import Profile from './components/pages/Profile';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -16,6 +17,7 @@ const App = () => {
             <Provider store={store}>
                 <Switch>
                     <PrivateRoute exact path="/" component={Home} />
+                    <PrivateRoute exact path="/profile/:id" component={Profile} />
                     <UnloggedRoute exact path="/sign-in" component={SignIn} />
                 </Switch>
             </Provider>

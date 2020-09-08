@@ -18,6 +18,7 @@ const Home = () => {
 
     useEffect(() => {
         getTweetsFollowersAPI(page).then(response => {
+            console.log(response)
             if (!tweets && response) {
                 setTweets(modelFormat(response));
             } else {

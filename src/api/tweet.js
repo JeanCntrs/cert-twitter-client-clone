@@ -25,6 +25,23 @@ export const addTweetAPI = message => {
     });
 }
 
+export const getUserTweetsAPI = (userId, page) => {
+    const url = `${baseURL}/tweets?id=${userId}&page=${page}`;
+
+    const params = {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getTokenAPI()}`
+        }
+    }
+
+    return fetch(url, params).then(response => {
+        return response.json()
+    }).catch(error => {
+        return error;
+    });
+}
+
 export const getTweetsFollowersAPI = (page = 1) => {
     const url = `${baseURL}/tweets/followers?page=${page}`;
 

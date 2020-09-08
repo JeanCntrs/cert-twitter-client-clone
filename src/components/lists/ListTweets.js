@@ -6,14 +6,15 @@ import moment from 'moment';
 import '../../assets/scss/components/lists/listTweets.scss';
 
 const Tweet = ({ tweet }) => {
+    console.log(tweet)
     const baseURL = process.env.REACT_APP_API_URL
 
     return (
         <div className="tweet">
-            <Image className="avatar" src={tweet.avatar ? `${baseURL}/file/avatar?id=${tweet.userId}` : AvatarNotFound} roundedCircle />
+            <Image className="avatar" src={tweet.userId.avatar ? `${baseURL}/file/avatar?id=${tweet.userId._id}` : AvatarNotFound} roundedCircle />
             <div>
                 <div className="fullname">
-                    {tweet.names} {tweet.surnames}
+                    {tweet.userId.names} {tweet.userId.surnames}
                     <span>{moment(tweet.createdAt).calendar()}</span>
                 </div>
                 <div
