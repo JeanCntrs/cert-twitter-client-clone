@@ -36,7 +36,6 @@ export const uploadBannerAPI = file => {
     }
 
     return fetch(url, params).then(response => {
-        console.log(response)
         return response.json();
     }).catch(error => {
         return error;
@@ -58,7 +57,6 @@ export const uploadAvatarAPI = file => {
     }
 
     return fetch(url, params).then(response => {
-        console.log(response)
         return response.json();
     }).catch(error => {
         return error;
@@ -78,7 +76,6 @@ export const updateUserInfoAPI = userInfo => {
     }
 
     return fetch(url, params).then(response => {
-        console.log(response)
         return response.json();
     }).catch(error => {
         return error;

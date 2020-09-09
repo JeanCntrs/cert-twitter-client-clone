@@ -1,6 +1,6 @@
-import {
+/* import {
     TEST
-} from '../types';
+} from '../types'; */
 
 const initialState = {
     names: '',

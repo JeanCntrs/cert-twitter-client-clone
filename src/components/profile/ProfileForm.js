@@ -27,7 +27,7 @@ const ProfileForm = ({ user, setShowModal }) => {
     const [bannerURL, setBannerURL] = useState(user?.banner ? `${baseURL}/file/banner?id=${user._id}` : null);
     const [avatarURL, setAvatarURL] = useState(user?.avatar ? `${baseURL}/file/avatar?id=${user._id}` : null);
     const [loading, setLoading] = useState(false);
-    console.log(formData)
+    
     const handleDropBanner = useCallback(acceptedFile => {
         const file = acceptedFile[0];
         setBannerURL(URL.createObjectURL(file));

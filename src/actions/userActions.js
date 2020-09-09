@@ -1,6 +1,6 @@
-import {
+/* import {
     TEST
-} from '../types';
+} from '../types'; */
 
 export const testAction = test => {
     return () => {

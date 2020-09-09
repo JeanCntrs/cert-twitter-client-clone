@@ -11,7 +11,6 @@ import ListTweets from '../lists/ListTweets';
 import '../../assets/scss/components/pages/profile.scss';
 
 const Profile = ({ match: { params: { id } } }) => {
-    console.log(id)
     const [user, setUser] = useState(null);
     const [tweets, setTweets] = useState(null);
     const [page, setPage] = useState(1);
