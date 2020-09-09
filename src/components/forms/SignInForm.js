@@ -20,9 +20,7 @@ const SignInForm = ({ history }) => {
         event.preventDefault();
 
         let validCount = 0;
-        Object.values(formData).map(value => {
-            value && validCount++;
-        });
+        Object.values(formData).map(value => value && validCount++);
 
         if (Object.keys(formData).length !== validCount)
             return toast.warning('❌ Completa todos los campos del formulario.');
@@ -48,6 +46,7 @@ const SignInForm = ({ history }) => {
 
     useEffect(() => {
         redirect && history.push('/');
+        // eslint-disable-next-line
     }, [redirect]);
 
     return (

@@ -22,7 +22,7 @@ const LeftMenu = ({ history }) => {
             <img className="logo" src={LogoWhite} alt="White Logo" />
             <Link to="/"><FontAwesomeIcon icon={faHome} /> Inicio</Link>
             <Link to={`/profile/${_id}`}><FontAwesomeIcon icon={faUser} /> Perfil</Link>
-            <Link to="/usuarios"><FontAwesomeIcon icon={faUsers} /> Usuarios</Link>
+            <Link to="/users"><FontAwesomeIcon icon={faUsers} /> Usuarios</Link>
             <Link to="" onClick={logOut}><FontAwesomeIcon icon={faPowerOff} /> Cerrar sesión</Link>
 
             <Button onClick={() => setShowModal(true)}>Publicar</Button>

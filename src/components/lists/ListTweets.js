@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Image } from 'react-bootstrap';
 import { replaceURLWithHTMLLinks } from '../../utils/functions';
 import AvatarNotFound from '../../assets/img/png/avatar-not-found.png';
@@ -6,7 +6,6 @@ import moment from 'moment';
 import '../../assets/scss/components/lists/listTweets.scss';
 
 const Tweet = ({ tweet }) => {
-    console.log(tweet)
     const baseURL = process.env.REACT_APP_API_URL
 
     return (
